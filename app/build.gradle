@@ -22,6 +22,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        staging{
+            initWith debug
+            buildConfigField "String", "API_BASE_URL", "\"https://task-planner-staging.herokuapp.com/\""
+        }
+        production{
+            initWith debug
+            buildConfigField "String", "API_BASE_URL", "\"https://task-planner-prod.herokuapp.com/\""
+        }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
