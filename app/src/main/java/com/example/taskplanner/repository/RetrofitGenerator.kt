@@ -14,8 +14,11 @@ object RetrofitGenerator {
 
     val retrofit: Retrofit by lazy{
 
+        //Logs onto the console all the HTTP requests
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
+
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .writeTimeout(0,TimeUnit.MILLISECONDS)
