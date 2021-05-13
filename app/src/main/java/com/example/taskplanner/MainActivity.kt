@@ -24,9 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         GlobalScope.launch(Dispatchers.IO) {
             val response = authService.auth(LoginDto("davidcab11@gmail.com","passw0rd"))
-            val tokenDto = response.body()
-            Log.d("DEBUG", "tokenDto: $tokenDto")
-
+            if(response.isSuccessful){
+                val tokenDto = response.body()
+                Log.d("DEBUG", "tokenDto: $tokenDto")
+            }else{
+                response.errorBody()
+            }
 
         }
 

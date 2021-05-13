@@ -14,16 +14,27 @@ object RetrofitGenerator {
 
     val retrofit: Retrofit by lazy{
 
-        //Logs onto the console all the HTTP requests
-        val loggingInterceptor = HttpLoggingInterceptor()
-        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
         val builder = Retrofit.Builder()
             .baseUrl(BuildConfig.API_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
 
+        addHttpLoggerInterceptor(builder)
+
+        return@lazy builder.build()
+
+
+
+    }
+
+    private fun addHttpLoggerInterceptor(builder: Retrofit.Builder){
+
         if(BuildConfig.DEBUG){
+            //Logs onto the console all the HTTP requests
+            val loggingInterceptor = HttpLoggingInterceptor()
+            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
                 .writeTimeout(0,TimeUnit.MILLISECONDS)
@@ -31,10 +42,6 @@ object RetrofitGenerator {
                 .connectTimeout(1, TimeUnit.MINUTES).build()
             builder.client(okHttpClient)
         }
-
-        return@lazy retrofit
-
-
 
     }
 
