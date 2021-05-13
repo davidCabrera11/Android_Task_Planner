@@ -24,11 +24,11 @@ android {
         }
         staging{
             initWith debug
-            buildConfigField "String", "API_BASE_URL", "\"https://task-planner-staging.herokuapp.com/v1\""
+            buildConfigField "String", "API_BASE_URL", "\"https://task-planner-staging.herokuapp.com/v1/\""
         }
         production{
             initWith debug
-            buildConfigField "String", "API_BASE_URL", "\"https://task-planner-prod.herokuapp.com/v1\""
+            buildConfigField "String", "API_BASE_URL", "\"https://task-planner-prod.herokuapp.com/v1/\""
         }
 
     }
