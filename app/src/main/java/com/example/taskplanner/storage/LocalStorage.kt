@@ -9,7 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 
 class LocalStorage(context: Context) : Storage {
 
-    val sharedPref = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
+    private val sharedPref = context.getSharedPreferences(SHARED_PREFERENCE_FILE_NAME, Context.MODE_PRIVATE)
 
     override fun saveToken(token: String) {
         sharedPref.edit().putString(TOKEN_KEY,token).apply()

@@ -20,15 +20,20 @@ class LauncherActivity :AppCompatActivity(){
         }else{
             startLoginActivity()
         }
+        finish()
 
     }
 
     private fun startLoginActivity() {
-        startActivity(Intent(this,LoginActivity::class.java))
+        val intent = Intent(this,LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
     private fun startMainActivity() {
-        startActivity(Intent(this,MainActivity::class.java))
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
 }
