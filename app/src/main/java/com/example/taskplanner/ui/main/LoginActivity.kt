@@ -1,5 +1,6 @@
 package com.example.taskplanner.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,7 @@ class LoginActivity: AppCompatActivity() {
                 val tokenDto = response.body()!!
                 Log.d("DEBUG", "tokenDto: $tokenDto")
                 storage.saveToken(tokenDto.token)
+                startActivity(Intent(this@LoginActivity,MainActivity::class.java))
 
             }else{
                 response.errorBody()
