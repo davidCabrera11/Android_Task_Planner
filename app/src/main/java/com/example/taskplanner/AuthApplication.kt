@@ -1,4 +1,4 @@
-package com.example.taskplanner.ui.main
+package com.example.taskplanner
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

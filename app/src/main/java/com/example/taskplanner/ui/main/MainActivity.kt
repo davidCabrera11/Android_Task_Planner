@@ -1,9 +1,9 @@
-package com.example.taskplanner
+package com.example.taskplanner.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.taskplanner.repository.RetrofitGenerator
+import com.example.taskplanner.R
 import com.example.taskplanner.repository.auth.AuthService
 import com.example.taskplanner.repository.dto.LoginDto
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun auth() {
-        //val authService = RetrofitGenerator.retrofit.create(AuthService::class.java)
 
         GlobalScope.launch(Dispatchers.IO) {
             val response = authService.auth(LoginDto("davidcab11@gmail.com","passw0rd"))
