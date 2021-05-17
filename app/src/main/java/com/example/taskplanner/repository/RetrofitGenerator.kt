@@ -14,7 +14,6 @@ object RetrofitGenerator {
 
     val retrofit: Retrofit by lazy{
 
-
         val builder = Retrofit.Builder()
             .baseUrl(BuildConfig.API_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -23,8 +22,6 @@ object RetrofitGenerator {
         addHttpLoggerInterceptor(builder)
 
         return@lazy builder.build()
-
-
 
     }
 
