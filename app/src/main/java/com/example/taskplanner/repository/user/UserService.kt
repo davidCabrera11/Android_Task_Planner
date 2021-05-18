@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface UserService {
 
-    @GET("/users/{id}")
-    fun findUserById(@Path("id") id:String):Response<UserDto>
+    @GET("users/{id}")
+    suspend fun findUserById(@Path("id") id:String):Response<UserDto>
 
 }
