@@ -7,6 +7,7 @@ import android.util.Log
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.auth.AuthService
 import com.example.taskplanner.repository.dto.LoginDto
+import com.example.taskplanner.repository.task.TaskService
 import com.example.taskplanner.repository.user.UserService
 import com.example.taskplanner.storage.LocalStorage
 import com.example.taskplanner.storage.Storage
@@ -26,6 +27,11 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var userService: UserService
 
+    @Inject
+    lateinit var taskService: TaskService
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,21 +39,40 @@ class MainActivity : AppCompatActivity() {
 
         findUserById()
 
+        findTaskById()
+
 
     }
+
 
     private fun findUserById(){
             GlobalScope.launch(Dispatchers.IO) {
                 val response = userService.findUserById("60986fda6619f922895259c8")
                 if(response.isSuccessful){
                     val user = response.body()!!
-                    Log.d("DEBUG", "tokenDto: $user")
+                    Log.d("DEBUG", "UserId: $user")
                 }else{
                     response.errorBody()
                 }
 
             }
     }
+
+
+    private fun findTaskById() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = taskService.findTaskById("609b11f76bb84e5de36c05c7")
+            if(response.isSuccessful){
+                val task = response.body()!!
+                Log.d("DEBUG", "TaskId: $task")
+            }else{
+                response.errorBody()
+            }
+
+        }
+    }
+
+
 
 
 
