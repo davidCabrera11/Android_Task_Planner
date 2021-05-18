@@ -21,7 +21,7 @@ interface TaskService {
     suspend fun updateTask(@Path("id")id: String, @Body taskDto: TaskDto):Response<TaskDto>
 
     @DELETE("tasks/{id}")
-    suspend fun deleteTask(@Path("id") id:String)
+    suspend fun deleteTask(@Path("id") id:String): Response<TaskDto>
 
 
 

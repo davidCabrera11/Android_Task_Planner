@@ -1,6 +1,7 @@
 package com.example.taskplanner.repository.user
 
 import com.example.taskplanner.repository.dto.UserDto
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -21,6 +22,6 @@ interface UserService {
     suspend fun updateUser(@Path("id")id: String, @Body userDto: UserDto):Response<UserDto>
 
     @DELETE("users/{id}")
-    fun deleteUser(@Path("id")id:String)
+    fun deleteUser(@Path("id")id: String):Response<UserDto>
 
 }

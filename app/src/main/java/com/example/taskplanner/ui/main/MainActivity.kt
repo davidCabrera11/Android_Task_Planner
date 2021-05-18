@@ -38,12 +38,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.d("Developer","token ${storage.getToken()}")
 
+        //User Service CRUD
         createUser()
         findUserById()
         getUsers()
-       /* updateUser()
-        deleteUser()*/
+        updateUser()
+        deleteUser()
 
+
+        //TaskService CRUD
 
         findTaskById()
 
@@ -91,15 +94,32 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-  /*  private fun updateUser() {
-        TODO("Not yet implemented")
+    private fun updateUser() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = userService.updateUser("60a32c6448abc1562e50013e", UserDto("","Jorge","securePassword123","jorge123@gmail.com","imgur.com"))
+            if(response.isSuccessful){
+                val user = response.body()!!
+                Log.d("DEBUG", "Updated UserId's : $user")
+            }else{
+                response.errorBody()
+            }
+
+        }
     }
 
     private fun deleteUser() {
-        TODO("Not yet implemented")
-    }
-*/
+        GlobalScope.launch(Dispatchers.IO) {
+            /*val response = userService.deleteUser("60a315e948abc1562e50013d")
+            if(response.isSuccessful){
+                val user = response.body()!!
+                Log.d("DEBUG", "Deleted userId : $user")
+            }else{
+                response.errorBody()
+            }*/
 
+
+        }
+    }
 
 
 
