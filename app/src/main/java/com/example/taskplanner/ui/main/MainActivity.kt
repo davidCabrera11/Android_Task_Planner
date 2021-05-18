@@ -7,6 +7,7 @@ import android.util.Log
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.auth.AuthService
 import com.example.taskplanner.repository.dto.LoginDto
+import com.example.taskplanner.repository.dto.UserDto
 import com.example.taskplanner.repository.task.TaskService
 import com.example.taskplanner.repository.user.UserService
 import com.example.taskplanner.storage.LocalStorage
@@ -40,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         createUser()
         findUserById()
         getUsers()
+       /* updateUser()
+        deleteUser()*/
 
 
         findTaskById()
@@ -47,9 +50,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+
     private fun createUser() {
-        TODO("Not yet implemented")
-    }
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = userService.createUser(UserDto("1002031231","David Cabrera","password1","dcab3123@gmail.com","https://imgur.com/t/kotlin/QPd2a"))
+            if(response.isSuccessful){
+                val user = response.body()!!
+                Log.d("DEBUG", "Create new user: $user")
+            }else{
+                response.errorBody()
+            }
+
+        }    }
 
 
     private fun findUserById(){
@@ -77,6 +90,19 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+  /*  private fun updateUser() {
+        TODO("Not yet implemented")
+    }
+
+    private fun deleteUser() {
+        TODO("Not yet implemented")
+    }
+*/
+
+
+
+
 
     private fun findTaskById() {
         GlobalScope.launch(Dispatchers.IO) {

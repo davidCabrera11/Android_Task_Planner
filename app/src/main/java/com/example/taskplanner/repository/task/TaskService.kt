@@ -8,11 +8,11 @@ import retrofit2.http.*
 interface TaskService {
 
 
-    @POST
+    @POST("tasks")
     suspend fun createTask(@Body taskDto: TaskDto): Response<TaskDto>
 
-    @GET
-    suspend fun getTasks(): List<TaskDto>
+    @GET("tasks")
+    suspend fun getTasks(): Response<List<UserDto>>
 
     @GET("tasks/{id}")
     suspend fun findTaskById(@Path("id") id:String): Response<TaskDto>
