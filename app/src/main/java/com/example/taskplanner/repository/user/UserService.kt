@@ -22,6 +22,6 @@ interface UserService {
     suspend fun updateUser(@Path("id")id: String, @Body userDto: UserDto):Response<UserDto>
 
     @DELETE("users/{id}")
-    fun deleteUser(@Path("id")id: String):Response<UserDto>
+    suspend fun deleteUser(@Path("id")id: String):Response<UserDto>
 
 }

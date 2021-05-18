@@ -113,13 +113,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun deleteUser() {
         GlobalScope.launch(Dispatchers.IO) {
-            /*val response = userService.deleteUser("60a315e948abc1562e50013d")
+            val response = userService.deleteUser("60a315e948abc1562e50013d")
             if(response.isSuccessful){
                 val user = response.body()!!
                 Log.d("DEBUG", "Deleted userId : $user")
             }else{
                 response.errorBody()
-            }*/
+            }
 
 
         }
@@ -132,7 +132,8 @@ class MainActivity : AppCompatActivity() {
                 "2021-05-19T03:18:42.507+00:00","To-do","123123123"))
             if(response.isSuccessful){
                 val task = response.body()!!
-                Log.d("DEBUG", "Create new task: $task")
+                println("Created Task $task")
+                Log.d("Debug", "Create new task: $task")
             }else{
                 response.errorBody()
             }
