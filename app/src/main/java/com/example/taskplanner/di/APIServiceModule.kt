@@ -3,6 +3,7 @@ package com.example.taskplanner.di
 import com.example.taskplanner.BuildConfig
 import com.example.taskplanner.network.AuthInterceptor
 import com.example.taskplanner.repository.auth.AuthService
+import com.example.taskplanner.repository.user.UserService
 import com.example.taskplanner.storage.Storage
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
@@ -26,6 +27,16 @@ object APIServiceModule {
         return retrofit.create(AuthService::class.java)
 
     }
+
+    @Provides
+    @Singleton
+    fun provideUserService(retrofit: Retrofit): UserService{
+        return retrofit.create(UserService::class.java)
+    }
+
+
+
+
 
     @Provides
     @Singleton
