@@ -7,6 +7,7 @@ import android.util.Log
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.auth.AuthService
 import com.example.taskplanner.repository.dto.LoginDto
+import com.example.taskplanner.repository.dto.TaskDto
 import com.example.taskplanner.repository.dto.UserDto
 import com.example.taskplanner.repository.task.TaskService
 import com.example.taskplanner.repository.user.UserService
@@ -47,12 +48,14 @@ class MainActivity : AppCompatActivity() {
 
 
         //TaskService CRUD
-
+        createTask()
         findTaskById()
+        getTasks()
+        updateTask()
+        deleteTask()
 
 
     }
-
 
 
     private fun createUser() {
@@ -65,7 +68,8 @@ class MainActivity : AppCompatActivity() {
                 response.errorBody()
             }
 
-        }    }
+        }
+    }
 
 
     private fun findUserById(){
@@ -122,6 +126,20 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    private fun createTask() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = taskService.createTask(TaskDto("3123123","Complete house chores","David",
+                "2021-05-19T03:18:42.507+00:00","To-do","123123123"))
+            if(response.isSuccessful){
+                val task = response.body()!!
+                Log.d("DEBUG", "Create new task: $task")
+            }else{
+                response.errorBody()
+            }
+
+        }
+    }
+
 
 
     private fun findTaskById() {
@@ -129,13 +147,60 @@ class MainActivity : AppCompatActivity() {
             val response = taskService.findTaskById("609b11f76bb84e5de36c05c7")
             if(response.isSuccessful){
                 val task = response.body()!!
-                Log.d("DEBUG", "TaskId: $task")
+                Log.d("DEBUG", "Find task by id: $task")
             }else{
                 response.errorBody()
             }
 
         }
     }
+
+    private fun getTasks() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = taskService.getTasks()
+            if(response.isSuccessful){
+                val task = response.body()!!
+                Log.d("DEBUG", "Get Task: $task")
+            }else{
+                response.errorBody()
+            }
+
+        }
+    }
+
+    private fun updateTask() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = taskService.updateTask("609b11f76bb84e5de36c05c7",
+                TaskDto("3123123","Complete house chores","David",
+                "2021-05-19T03:18:42.507+00:00","To-do","123123123")
+            )
+            if(response.isSuccessful){
+                val task = response.body()!!
+                Log.d("DEBUG", "Updated task: $task")
+            }else{
+                response.errorBody()
+            }
+
+        }
+    }
+
+    private fun deleteTask() {
+        GlobalScope.launch(Dispatchers.IO) {
+           /* val response = taskService.deleteTask("")
+            if(response.isSuccessful){
+                val task = response.body()!!
+                Log.d("DEBUG", "Deleted Task: $task")
+            }else{
+                response.errorBody()
+            }*/
+
+        }
+    }
+
+
+
+
+
 
 
 
