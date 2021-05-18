@@ -37,11 +37,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.d("Developer","token ${storage.getToken()}")
 
+        createUser()
         findUserById()
+        getUsers()
+
 
         findTaskById()
 
 
+    }
+
+    private fun createUser() {
+        TODO("Not yet implemented")
     }
 
 
@@ -58,6 +65,18 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
+    private fun getUsers() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = userService.getUsers()
+            if(response.isSuccessful){
+                val user = response.body()!!
+                Log.d("DEBUG", "Get UserId's : $user")
+            }else{
+                response.errorBody()
+            }
+
+        }
+    }
 
     private fun findTaskById() {
         GlobalScope.launch(Dispatchers.IO) {
