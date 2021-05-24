@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         viewModel.findTaskById()
         viewModel.findUserById()
 
+        viewModel.updateTask()
+        viewModel.updateUser()
+
+
 
 
 
