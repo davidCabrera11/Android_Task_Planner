@@ -11,7 +11,6 @@ import com.example.taskplanner.storage.Storage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.IO
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

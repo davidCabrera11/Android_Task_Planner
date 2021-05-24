@@ -16,7 +16,6 @@ import com.example.taskplanner.storage.Storage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.IO
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -40,36 +39,15 @@ class MainActivity : AppCompatActivity() {
         Log.d("Developer","token ${storage.getToken()}")
 
         //User Service CRUD
-        createUser()
         findUserById()
-        getUsers()
-        updateUser()
-        deleteUser()
 
 
         //TaskService CRUD
-        createTask()
         findTaskById()
-        getTasks()
-        updateTask()
-        deleteTask()
 
 
     }
 
-
-    private fun createUser() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = userService.createUser(UserDto("1002031231","David Cabrera","password1","dcab3123@gmail.com","https://imgur.com/t/kotlin/QPd2a"))
-            if(response.isSuccessful){
-                val user = response.body()!!
-                Log.d("DEBUG", "Create new user: $user")
-            }else{
-                response.errorBody()
-            }
-
-        }
-    }
 
 
     private fun findUserById(){
@@ -83,61 +61,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-    }
-
-    private fun getUsers() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = userService.getUsers()
-            if(response.isSuccessful){
-                val user = response.body()!!
-                Log.d("DEBUG", "Get UserId's : $user")
-            }else{
-                response.errorBody()
-            }
-
-        }
-    }
-
-    private fun updateUser() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = userService.updateUser("60a32c6448abc1562e50013e", UserDto("","Jorge","securePassword123","jorge123@gmail.com","imgur.com"))
-            if(response.isSuccessful){
-                val user = response.body()!!
-                Log.d("DEBUG", "Updated UserId's : $user")
-            }else{
-                response.errorBody()
-            }
-
-        }
-    }
-
-    private fun deleteUser() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = userService.deleteUser("60986fda6619f922895259c8")
-            if(response.isSuccessful){
-                val user = response.body()!!
-                Log.d("DEBUG", "Deleted userId : $user")
-            }else{
-                response.errorBody()
-            }
-
-        }
-    }
-
-
-    private fun createTask() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = taskService.createTask(TaskDto("3123123","Complete house chores","David",
-                "2021-05-19T03:18:42.507+00:00","To-do","123123123"))
-            if(response.isSuccessful){
-                val task = response.body()!!
-                println("Created Task $task")
-                Log.d("Debug", "Create new task: $task")
-            }else{
-                response.errorBody()
-            }
-
-        }
     }
 
 
@@ -154,56 +77,6 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-
-    private fun getTasks() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = taskService.getTasks()
-            if(response.isSuccessful){
-                val task = response.body()!!
-                Log.d("DEBUG", "Get Task: $task")
-            }else{
-                response.errorBody()
-            }
-
-        }
-    }
-
-    private fun updateTask() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = taskService.updateTask("609b11f76bb84e5de36c05c7",
-                TaskDto("3123123","Complete house chores","David",
-                "2021-05-19T03:18:42.507+00:00","To-do","123123123")
-            )
-            if(response.isSuccessful){
-                val task = response.body()!!
-                Log.d("DEBUG", "Updated task: $task")
-            }else{
-                response.errorBody()
-            }
-
-        }
-    }
-
-    private fun deleteTask() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val response = taskService.deleteTask("609b11f76bb84e5de36c05c7")
-            if(response.isSuccessful){
-                val task = response.body()!!
-                Log.d("DEBUG", "Deleted Task: $task")
-            }else{
-                response.errorBody()
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-
 
 
 }
