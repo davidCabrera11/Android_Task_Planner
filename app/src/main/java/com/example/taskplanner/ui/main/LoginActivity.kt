@@ -33,6 +33,7 @@ class LoginActivity: AppCompatActivity() {
 
 
         })
+        viewModel.auth()
     }
 
 
