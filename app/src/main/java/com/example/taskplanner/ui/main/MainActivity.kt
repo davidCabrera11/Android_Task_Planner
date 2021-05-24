@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var taskService: TaskService
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,18 +40,14 @@ class MainActivity : AppCompatActivity() {
         //User Service CRUD
         findUserById()
 
-
         //TaskService CRUD
         findTaskById()
 
-
     }
-
-
 
     private fun findUserById(){
             GlobalScope.launch(Dispatchers.IO) {
-                val response = userService.findUserById("60986fda6619f922895259c8")
+                val response = userService.findUserById("6099af1ab755fe29152c9272")
                 if(response.isSuccessful){
                     val user = response.body()!!
                     Log.d("DEBUG", "UserId: $user")
@@ -64,10 +59,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     private fun findTaskById() {
         GlobalScope.launch(Dispatchers.IO) {
-            val response = taskService.findTaskById("609b11f76bb84e5de36c05c7")
+            val response = taskService.findTaskById("60a3326448abc1562e500144")
             if(response.isSuccessful){
                 val task = response.body()!!
                 Log.d("DEBUG", "Find task by id: $task")
