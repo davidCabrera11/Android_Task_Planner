@@ -2,6 +2,8 @@ package com.example.taskplanner.di
 
 
 import android.content.Context
+import androidx.room.Room
+import com.example.taskplanner.repository.AppDatabase
 import com.example.taskplanner.storage.LocalStorage
 import com.example.taskplanner.storage.Storage
 import dagger.Module
@@ -19,6 +21,18 @@ object DataModule {
     @Singleton
     fun provideStorage(@ApplicationContext context: Context) : Storage{
         return LocalStorage(context)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideAppDatabase(@ApplicationContext context: Context):AppDatabase{
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "database-taskplanner"
+        ).build()
+
+
     }
 
 
