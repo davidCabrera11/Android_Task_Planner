@@ -4,6 +4,7 @@ package com.example.taskplanner.di
 import android.content.Context
 import androidx.room.Room
 import com.example.taskplanner.repository.AppDatabase
+import com.example.taskplanner.repository.model.dao.TaskDao
 import com.example.taskplanner.repository.model.dao.UserDao
 import com.example.taskplanner.storage.LocalStorage
 import com.example.taskplanner.storage.Storage
@@ -44,6 +45,14 @@ object DataModule {
         return appDatabase.userDao()
 
     }
+
+    @Provides
+    @Singleton
+    fun provideTaskDao(appDatabase: AppDatabase):TaskDao{
+        return appDatabase.taskDao()
+
+    }
+
 
 
 

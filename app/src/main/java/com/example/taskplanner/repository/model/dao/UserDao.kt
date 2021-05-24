@@ -12,8 +12,10 @@ interface UserDao {
     fun getAll(): List<User>
 
     @Query("SELECT * FROM user WHERE id = :id ")
-    fun findUserId(id: String): User
+    fun findById(id: String): User
 
     @Insert
     fun save(user: User)
+
+
 }

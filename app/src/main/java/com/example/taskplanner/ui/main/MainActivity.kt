@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.taskplanner.R
+import com.example.taskplanner.repository.model.dao.TaskDao
 import com.example.taskplanner.repository.model.dao.UserDao
+import com.example.taskplanner.repository.model.entity.Task
 import com.example.taskplanner.repository.model.entity.User
 import com.example.taskplanner.repository.remote.task.TaskService
 import com.example.taskplanner.repository.remote.user.UserService
@@ -29,6 +31,10 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var userDao: UserDao
+
+    @Inject
+    lateinit var taskDao: TaskDao
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             if(response.isSuccessful){
                 val task = response.body()!!
                 Log.d("DEBUG", "Find task by id: $task")
+                taskDao.save(Task(task))
             }else{
                 response.errorBody()
             }
