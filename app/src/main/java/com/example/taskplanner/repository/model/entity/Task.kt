@@ -2,6 +2,8 @@ package com.example.taskplanner.repository.model.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.taskplanner.repository.remote.dto.TaskDto
+import com.example.taskplanner.repository.remote.dto.UserDto
 
 @Entity
 data class Task(
@@ -14,4 +16,16 @@ data class Task(
     val userId: String
 
 
-)
+){
+
+    constructor(taskDto: TaskDto): this(
+        0,
+        taskDto.id,
+        taskDto.description,
+        taskDto.personResponsible,
+        taskDto.dueDate,
+        taskDto.status,
+        taskDto.userId
+    )
+
+}
