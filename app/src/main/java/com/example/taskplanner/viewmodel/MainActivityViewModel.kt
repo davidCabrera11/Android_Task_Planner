@@ -34,7 +34,6 @@ class MainActivityViewModel @Inject constructor(
             if(response.isSuccessful){
                 val user = response.body()!!
                 Log.d("DEBUG", "UserId: $user")
-                userRepository.userDao.save(User(user))
                 successLiveData.postValue(true)
             }else{
                 response.errorBody()
@@ -53,8 +52,8 @@ class MainActivityViewModel @Inject constructor(
             if(response.isSuccessful){
                 val task = response.body()!!
                 Log.d("DEBUG", "Find task by id: $task")
-                taskRepository.taskDao.save(Task(task))
                 successLiveData.postValue(true)
+                taskRepository.taskDao.save(Task(task))
             }else{
                 response.errorBody()
                 successLiveData.postValue(false)
