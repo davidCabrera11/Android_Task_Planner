@@ -30,8 +30,6 @@ class LoginActivity: AppCompatActivity() {
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 finish()
             }
-
-
         })
         viewModel.auth()
     }
