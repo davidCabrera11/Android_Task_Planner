@@ -10,6 +10,8 @@ import com.example.taskplanner.repository.model.entity.Task
 import com.example.taskplanner.repository.model.entity.User
 import com.example.taskplanner.repository.remote.task.TaskService
 import com.example.taskplanner.repository.remote.user.UserService
+import com.example.taskplanner.repository.repository.TaskRepository
+import com.example.taskplanner.repository.repository.UserRepository
 import com.example.taskplanner.storage.Storage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -19,21 +21,20 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-    private val userService: UserService,
-    private val taskService: TaskService,
-    private val userDao: UserDao,
-    private val taskDao: TaskDao
+    private val storage: Storage,
+    private val userRepository: UserRepository,
+    private val taskRepository: TaskRepository
     ):ViewModel() {
 
         val successLiveData = MutableLiveData<Boolean>()
 
     fun findUserById(){
         viewModelScope.launch(Dispatchers.IO) {
-            val response = userService.findUserById("6099af1ab755fe29152c9272")
+            val response = userRepository.userService.findUserById("6099af1ab755fe29152c9272")
             if(response.isSuccessful){
                 val user = response.body()!!
                 Log.d("DEBUG", "UserId: $user")
-                userDao.save(User(user))
+                userRepository.userDao.save(User(user))
                 successLiveData.postValue(true)
             }else{
                 response.errorBody()
@@ -48,11 +49,11 @@ class MainActivityViewModel @Inject constructor(
 
     fun findTaskById(){
         viewModelScope.launch(Dispatchers.IO) {
-            val response = taskService.findTaskById("60a3326448abc1562e500144")
+            val response = taskRepository.taskService.findTaskById("60a3326448abc1562e500144")
             if(response.isSuccessful){
                 val task = response.body()!!
                 Log.d("DEBUG", "Find task by id: $task")
-                taskDao.save(Task(task))
+                taskRepository.taskDao.save(Task(task))
                 successLiveData.postValue(true)
             }else{
                 response.errorBody()
