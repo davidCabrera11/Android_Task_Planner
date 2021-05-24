@@ -1,4 +1,4 @@
-package com.example.taskplanner.repository.dto
+package com.example.taskplanner.repository.remote.dto
 
 data class UserDto(
     val id:String,

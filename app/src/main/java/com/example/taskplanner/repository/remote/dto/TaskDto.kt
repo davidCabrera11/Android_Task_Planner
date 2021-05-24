@@ -1,6 +1,4 @@
-package com.example.taskplanner.repository.dto
-
-import java.util.*
+package com.example.taskplanner.repository.remote.dto
 
 data class TaskDto(
     val id: String,

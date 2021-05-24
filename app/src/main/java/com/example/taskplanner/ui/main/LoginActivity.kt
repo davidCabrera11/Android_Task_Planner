@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taskplanner.R
-import com.example.taskplanner.repository.auth.AuthService
-import com.example.taskplanner.repository.dto.LoginDto
+import com.example.taskplanner.repository.remote.auth.AuthService
+import com.example.taskplanner.repository.remote.dto.LoginDto
 import com.example.taskplanner.storage.Storage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers

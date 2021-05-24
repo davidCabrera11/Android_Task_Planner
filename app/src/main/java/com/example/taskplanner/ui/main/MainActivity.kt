@@ -1,17 +1,11 @@
 package com.example.taskplanner.ui.main
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.taskplanner.R
-import com.example.taskplanner.repository.auth.AuthService
-import com.example.taskplanner.repository.dto.LoginDto
-import com.example.taskplanner.repository.dto.TaskDto
-import com.example.taskplanner.repository.dto.UserDto
-import com.example.taskplanner.repository.task.TaskService
-import com.example.taskplanner.repository.user.UserService
-import com.example.taskplanner.storage.LocalStorage
+import com.example.taskplanner.repository.remote.task.TaskService
+import com.example.taskplanner.repository.remote.user.UserService
 import com.example.taskplanner.storage.Storage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers

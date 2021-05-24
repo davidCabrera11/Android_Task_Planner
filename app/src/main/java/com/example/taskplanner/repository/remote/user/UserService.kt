@@ -1,8 +1,6 @@
-package com.example.taskplanner.repository.user
+package com.example.taskplanner.repository.remote.user
 
-import com.example.taskplanner.repository.dto.UserDto
-import okhttp3.ResponseBody
-import retrofit2.Call
+import com.example.taskplanner.repository.remote.dto.UserDto
 import retrofit2.Response
 import retrofit2.http.*
 
