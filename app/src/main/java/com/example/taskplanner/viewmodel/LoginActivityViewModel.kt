@@ -1,6 +1,5 @@
 package com.example.taskplanner.viewmodel
 
-import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,10 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.taskplanner.repository.remote.auth.AuthService
 import com.example.taskplanner.repository.remote.dto.LoginDto
 import com.example.taskplanner.storage.Storage
-import com.example.taskplanner.ui.main.MainActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
