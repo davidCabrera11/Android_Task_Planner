@@ -32,10 +32,12 @@ class MainActivity : AppCompatActivity() {
         viewModel.successLiveData.observe(this,{success->
             if (success){
 
-
             }
 
         })
+
+        viewModel.findTaskById()
+        viewModel.findUserById()
 
 
 
