@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.taskplanner.R
 import com.example.taskplanner.viewmodel.LoginActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_login.*
 
 @AndroidEntryPoint
 class LoginActivity: AppCompatActivity() {
@@ -17,24 +18,17 @@ class LoginActivity: AppCompatActivity() {
 
     val viewModel by viewModels<LoginActivityViewModel>()
 
-    val button = findViewById<Button>(R.id.btnLogin)
-
-    val emailEditText = findViewById<EditText>(R.id.editTextEmail)
-
-    val passwordEditText = findViewById<EditText>(R.id.editTextPassword)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
-        button.setOnClickListener {
-            if (validFormField()){
-
-            }
-
+        btnLogin.setOnClickListener {
+            validFormField()
         }
+
+
 
         viewModel.successLiveData.observe(this, {success ->
             if (success){
@@ -47,18 +41,18 @@ class LoginActivity: AppCompatActivity() {
 
     private fun validFormField(): Boolean {
 
-        if (emailEditText.text.isEmpty()){
-            emailEditText.error = getString(R.string.field_cannot_be_empty)
+        if (editTextEmail.text.isEmpty()){
+            editTextEmail.error = getString(R.string.field_cannot_be_empty)
             return false
-        }else if (android.util.Patterns.EMAIL_ADDRESS.matcher(emailEditText.text).matches()){
-            emailEditText.error = getString(R.string.invalid_email_address)
+        }else if (android.util.Patterns.EMAIL_ADDRESS.matcher(editTextEmail.text).matches()){
+            editTextEmail.error = getString(R.string.invalid_email_address)
             return false
         }else{
-            emailEditText.error = null
+            editTextEmail.error = null
         }
 
-        if (passwordEditText.text.isEmpty()){
-            passwordEditText.error = getString(R.string.field_cannot_be_empty)
+        if (editTextPassword.text.isEmpty()){
+            editTextPassword.error = getString(R.string.field_cannot_be_empty)
             return false
         }
 
