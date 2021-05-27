@@ -14,16 +14,20 @@ class LoginActivity: AppCompatActivity() {
 
     val viewModel by viewModels<LoginActivityViewModel>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+
+
         viewModel.successLiveData.observe(this, {success ->
             if (success){
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 finish()
             }
         })
-        viewModel.auth()
+        //viewModel.auth()
     }
 
 
