@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TaskPlanner</string>
+    <string name="app_name">Task Planner</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
