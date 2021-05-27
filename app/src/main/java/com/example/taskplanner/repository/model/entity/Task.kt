@@ -11,6 +11,7 @@ data class Task(
     val id: String,
     val description: String,
     val personResponsible:String,
+    //TODO change to Date
     val dueDate: String,
     val status: String,
     val userId: String

@@ -23,7 +23,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-    private val storage: Storage,
     private val userRepository: UserRepository,
     private val taskRepository: TaskRepository
     ):ViewModel() {

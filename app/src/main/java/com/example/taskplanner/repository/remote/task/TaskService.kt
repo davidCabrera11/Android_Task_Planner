@@ -12,7 +12,7 @@ interface TaskService {
     suspend fun createTask(@Body taskDto: TaskDto): Response<TaskDto>
 
     @GET("tasks")
-    suspend fun getTasks(): Response<List<UserDto>>
+    suspend fun getTasks(): Response<List<TaskDto>>
 
     @GET("tasks/{id}")
     suspend fun findTaskById(@Path("id") id:String): Response<TaskDto>
