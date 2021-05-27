@@ -19,15 +19,15 @@ class LoginActivity: AppCompatActivity() {
     val viewModel by viewModels<LoginActivityViewModel>()
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         btnLogin.setOnClickListener {
             validFormField()
-        }
+            viewModel.auth(editTextEmail.toString(),editTextPassword.toString())
 
+        }
 
 
         viewModel.successLiveData.observe(this, {success ->
@@ -36,7 +36,6 @@ class LoginActivity: AppCompatActivity() {
                 finish()
             }
         })
-        //viewModel.auth()
     }
 
     private fun validFormField(): Boolean {
