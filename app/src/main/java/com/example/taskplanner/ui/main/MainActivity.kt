@@ -29,13 +29,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.successLiveData.observe(this,{success->
-            if (success){
-
-            }
-
-        })
-
         viewModel.findTaskById()
         viewModel.findUserById()
 

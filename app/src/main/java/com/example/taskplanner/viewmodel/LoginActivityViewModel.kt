@@ -23,9 +23,6 @@ class LoginActivityViewModel @Inject constructor(private val authService: AuthSe
     val successLiveData = MutableLiveData<Boolean>()
 
 
-
-
-
 /*     fun auth() {
          viewModelScope.launch(Dispatchers.IO) {
             val response = authService.auth(LoginDto("davidcab11@gmail.com","passw0rd"))
