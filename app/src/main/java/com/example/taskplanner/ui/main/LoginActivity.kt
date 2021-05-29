@@ -29,6 +29,10 @@ class LoginActivity: AppCompatActivity() {
 
         }
 
+        btnCreateAccount.setOnClickListener {
+
+        }
+
 
         viewModel.successLiveData.observe(this, {success ->
             if (success){
