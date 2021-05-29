@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.taskplanner.R
 import com.example.taskplanner.viewmodel.CreateAccountViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_create_account.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.btnCreateAccount
 
 @AndroidEntryPoint
 class CreateAccountActivity:AppCompatActivity() {
@@ -18,6 +20,13 @@ class CreateAccountActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_account)
+
+
+        btnCreateAccount.setOnClickListener {
+
+
+
+        }
 
 
 
