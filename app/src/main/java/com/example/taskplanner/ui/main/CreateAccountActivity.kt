@@ -23,6 +23,8 @@ class CreateAccountActivity:AppCompatActivity() {
 
 
         btnCreateAccount.setOnClickListener {
+            viewModel.createUser(editTextIdCreate.toString(),editTextNameCreate.toString(),editTextPasswordCreate.toString(),
+                editTextEmailCreate.toString(),editTextProfileCreate.toString())
 
 
 
