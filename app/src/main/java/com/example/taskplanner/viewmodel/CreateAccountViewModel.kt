@@ -17,8 +17,7 @@ import javax.inject.Inject
 class CreateAccountViewModel @Inject constructor(private val userRepository: UserRepository):ViewModel() {
 
 
-    fun createUser(id:String, name:String, password:String,
-                   email:String, profilePicture:String){
+    fun createUser(id:String, name:String, password:String, email:String, profilePicture:String){
 
         viewModelScope.launch(Dispatchers.IO){
             val response = userRepository.userService.createUser(UserDto(id,name,password,email,profilePicture))

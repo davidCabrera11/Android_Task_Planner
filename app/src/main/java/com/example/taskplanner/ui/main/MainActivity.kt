@@ -1,5 +1,6 @@
 package com.example.taskplanner.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -30,13 +31,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        button.setOnClickListener {
 
+            startActivity(Intent(this@MainActivity,CreateAccountActivity::class.java))
+
+        }
+
+
+/*
         viewModel.findTaskById()
         viewModel.findUserById()
 
         viewModel.updateTask()
         viewModel.updateUser()
 
+*/
 
 
 
