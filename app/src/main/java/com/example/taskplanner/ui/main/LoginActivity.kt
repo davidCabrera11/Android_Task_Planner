@@ -24,8 +24,8 @@ class LoginActivity: AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btnLogin.setOnClickListener {
-            validFormField()
             viewModel.auth(editTextEmail.text.toString(),editTextPassword.text.toString())
+            validFormField()
 
         }
 
