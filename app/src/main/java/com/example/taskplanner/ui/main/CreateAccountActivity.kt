@@ -24,7 +24,7 @@ class CreateAccountActivity:AppCompatActivity() {
 
         btnCreateAccount.setOnClickListener {
             viewModel.createUser(editTextIdCreate.text.toString(),editTextNameCreate.text.toString(),editTextPasswordCreate.text.toString(),
-                editTextEmailCreate.text.toString(),editTextProfileCreate.text.toString())
+                editTextEmailCreate.text.toString(),imageViewProfilePicture.toString())
 
 
 
