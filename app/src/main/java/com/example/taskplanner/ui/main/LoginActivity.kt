@@ -30,6 +30,7 @@ class LoginActivity: AppCompatActivity() {
         }
 
         btnCreateAccount.setOnClickListener {
+            startActivity(Intent(this@LoginActivity,CreateAccountActivity::class.java))
 
         }
 
