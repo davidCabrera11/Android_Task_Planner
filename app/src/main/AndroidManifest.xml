@@ -21,10 +21,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.main.LoginActivity"/>
-        <activity android:name=".ui.main.MainActivity"/>
-        <activity android:name=".ui.main.CreateAccountActivity"/>
 
+        <activity android:name=".ui.main.MainActivity"/>
+
+        <activity android:name=".ui.main.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.main.CreateAccountActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

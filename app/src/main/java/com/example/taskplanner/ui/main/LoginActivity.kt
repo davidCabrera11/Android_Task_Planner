@@ -26,14 +26,11 @@ class LoginActivity: AppCompatActivity() {
         btnLogin.setOnClickListener {
             viewModel.auth(editTextEmail.text.toString(),editTextPassword.text.toString())
             validFormField()
-
         }
 
         btnCreateAccount.setOnClickListener {
             startActivity(Intent(this@LoginActivity,CreateAccountActivity::class.java))
-
         }
-
 
         viewModel.successLiveData.observe(this, {success ->
             if (success){
