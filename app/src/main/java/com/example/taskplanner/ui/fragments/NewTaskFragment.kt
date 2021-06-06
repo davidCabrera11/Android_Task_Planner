@@ -14,10 +14,6 @@ class NewTaskFragment : Fragment(R.layout.fragment_new_task) {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-
-
-
     }
 
 

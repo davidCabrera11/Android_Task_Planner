@@ -4,13 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.UpdateTaskFragment">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
-
 
 
         <TextView
@@ -21,8 +19,7 @@
             android:padding="10dp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="25sp"
-            tools:text="Update Task"/>
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/origin"
@@ -31,10 +28,12 @@
             android:gravity="center_horizontal"
             android:padding="10dp"
             android:textStyle="bold"
-            android:textSize="20sp"
-            tools:text="Origin: Afghanistan, Pakistan, Iran"/>
+            android:textSize="20sp"/>
 
     </LinearLayout>
+
+
+
 
 
 </FrameLayout>

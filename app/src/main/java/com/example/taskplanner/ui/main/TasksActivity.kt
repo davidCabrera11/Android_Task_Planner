@@ -17,10 +17,9 @@ class TasksActivity : AppCompatActivity() {
         setContentView(R.layout.activity_task)
 
 
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add(R.id.fragmentTask, NewTaskFragment())
-
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.newTaskFragment, NewTaskFragment())
+            commit()
         }
 
 

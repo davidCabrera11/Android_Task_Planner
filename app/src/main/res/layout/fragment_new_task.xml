@@ -15,17 +15,16 @@
         android:orientation="vertical">
 
 
-
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:padding="10dp"
+            android:text="dasdasd"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="25sp"
-            tools:text="Create Task"/>
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/origin"
@@ -34,8 +33,7 @@
             android:gravity="center_horizontal"
             android:padding="10dp"
             android:textStyle="bold"
-            android:textSize="20sp"
-            tools:text="Origin: Afghanistan, Pakistan, Iran"/>
+            android:textSize="20sp"/>
 
     </LinearLayout>
 
