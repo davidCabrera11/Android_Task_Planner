@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.remote.dto.TaskDto
 
-class TaskAdapter(private val taskList: List<TaskDto>): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+class TaskAdapter(private var taskList: List<TaskDto>): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
@@ -39,6 +39,13 @@ class TaskAdapter(private val taskList: List<TaskDto>): RecyclerView.Adapter<Tas
 
     override fun getItemCount(): Int {
         return taskList.size
+
+    }
+
+    fun updateTaskList(task: List<TaskDto>){
+        this.taskList = task
+        notifyDataSetChanged()
+
 
     }
 

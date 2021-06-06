@@ -6,9 +6,12 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taskplanner.R
+import com.example.taskplanner.ui.adapter.TaskAdapter
 import com.example.taskplanner.viewmodel.MainActivityViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fragment_recycle_view.*
 
 
 class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view) {
@@ -16,6 +19,7 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view) {
 
     val viewModel by viewModels<MainActivityViewModel>()
 
+    val taskAdapter = TaskAdapter(emptyList())
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,11 +32,18 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view) {
 
         }
 
+        configureRecyclerView()
+
+
 
     }
 
+    private fun configureRecyclerView() {
+        val linearLayoutManager = LinearLayoutManager(activity)
+        recyclerViewTasks.layoutManager = linearLayoutManager
+        recyclerViewTasks.adapter = taskAdapter
 
-
+     }
 
 
 }
