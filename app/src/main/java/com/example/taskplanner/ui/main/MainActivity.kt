@@ -37,11 +37,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.fabCreateTask.setOnClickListener {
-            Log.d("Developer","FAB Button clicked !")
-            startActivity(Intent(this@MainActivity,TasksActivity::class.java))
 
-        }
+
+
+
+
+
 
 
     }
