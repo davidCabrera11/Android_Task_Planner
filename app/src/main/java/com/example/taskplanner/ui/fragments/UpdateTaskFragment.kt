@@ -8,17 +8,13 @@ import android.view.ViewGroup
 import com.example.taskplanner.R
 
 
-class NewTaskFragment : Fragment(R.layout.fragment_new_task) {
+
+class UpdateTaskFragment : Fragment(R.layout.fragment_update_task) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-
-
-
     }
-
 
 }

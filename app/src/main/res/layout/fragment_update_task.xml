@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.NewTaskFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".ui.fragments.UpdateTaskFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +22,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="25sp"
-            tools:text="Create Task"/>
+            tools:text="Update Task"/>
 
         <TextView
             android:id="@+id/origin"
@@ -38,12 +35,6 @@
             tools:text="Origin: Afghanistan, Pakistan, Iran"/>
 
     </LinearLayout>
-
-
-
-
-
-
 
 
 </FrameLayout>

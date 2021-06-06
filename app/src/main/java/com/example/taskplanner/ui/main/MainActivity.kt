@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.fabCreateTask.setOnClickListener {
             Log.d("Developer","FAB Button clicked !")
+            startActivity(Intent(this@MainActivity,TasksActivity::class.java))
 
         }
 
