@@ -34,8 +34,6 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view) {
 
         configureRecyclerView()
 
-
-
     }
 
     private fun configureRecyclerView() {

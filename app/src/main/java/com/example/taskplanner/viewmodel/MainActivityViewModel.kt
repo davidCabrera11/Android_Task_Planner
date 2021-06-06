@@ -48,6 +48,25 @@ class MainActivityViewModel @Inject constructor(
 
     }
 
+     fun createTask(description:String,personResponsible:String,dueDate:String,status:String) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = taskRepository.taskService.createTask(TaskDto("3123123",description,personResponsible,
+                dueDate,status,"123123123"))
+            if(response.isSuccessful){
+                val task = response.body()!!
+                println("Created Task $task")
+                taskRepository.taskDao.save(Task(task))
+                Log.d("Debug", "Create new task: $task")
+            }else{
+                response.errorBody()
+            }
+
+        }
+    }
+
+
+
+
 
 
 
