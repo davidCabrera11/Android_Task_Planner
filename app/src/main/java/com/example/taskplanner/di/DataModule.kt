@@ -25,8 +25,6 @@ object DataModule {
         return LocalStorage(context)
     }
 
-
-
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context):AppDatabase{
@@ -34,7 +32,6 @@ object DataModule {
             context,
             AppDatabase::class.java, "database-taskplanner"
         ).build()
-
 
     }
 

@@ -20,7 +20,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Filter tasks"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView4"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewTasks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView4"
+        android:id="@+id/recyclerViewTasks"
         android:layout_width="409dp"
         android:layout_height="582dp"
         android:layout_marginStart="1dp"
