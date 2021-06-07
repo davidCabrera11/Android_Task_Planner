@@ -14,62 +14,62 @@
         android:text="New Task"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDescriptionTask"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUpdateDescriptionTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextDescriptionTask"
+        android:id="@+id/textViewUpdateDescriptionTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Description"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPersonResponsible"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUpdatePersonResponsible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/editTextPersonResponsible"
+        android:id="@+id/textViewUpdatePersonResponsible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Person Responsible"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDueDate"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUpdateDueDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDescriptionTask" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdateDescriptionTask" />
 
     <EditText
-        android:id="@+id/editTextDueDate"
+        android:id="@+id/textViewUpdateDueDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Select Due Date"
-        app:layout_constraintBottom_toTopOf="@+id/editTextStatus"
+        app:layout_constraintBottom_toTopOf="@+id/textViewUpdateStatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPersonResponsible" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdatePersonResponsible" />
 
     <EditText
-        android:id="@+id/editTextStatus"
+        android:id="@+id/textViewUpdateStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Status"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCreateTask"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUpdateTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDueDate" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdateDueDate" />
 
     <Button
-        android:id="@+id/buttonCreateTask"
+        android:id="@+id/buttonUpdateTask"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="10dp"
@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextStatus"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewUpdateStatus"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

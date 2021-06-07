@@ -20,19 +20,10 @@
             app:destination="@id/newTaskFragment" />
     </fragment>
     <fragment
-        android:id="@+id/updateTaskFragment"
-        android:name="com.example.taskplanner.ui.fragments.UpdateTaskFragment"
-        android:label="fragment_update_task"
-        tools:layout="@layout/fragment_update_task" />
-    <fragment
         android:id="@+id/taskDetailFragment"
         android:name="com.example.taskplanner.ui.fragments.TaskDetailFragment"
         android:label="fragment_task_detail"
-        tools:layout="@layout/fragment_task_detail" >
-        <action
-            android:id="@+id/action_taskDetailFragment_to_updateTaskFragment"
-            app:destination="@id/updateTaskFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_task_detail" />
     <fragment
         android:id="@+id/updateProfileFragment"
         android:name="com.example.taskplanner.ui.fragments.UpdateProfileFragment"
