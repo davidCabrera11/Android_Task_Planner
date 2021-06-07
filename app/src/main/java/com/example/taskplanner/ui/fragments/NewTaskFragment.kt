@@ -41,6 +41,8 @@ class NewTaskFragment : Fragment(R.layout.fragment_new_task) {
 
             viewModel.createTask(description.text.toString(),personResponsable.text.toString(),dueDate.text.toString(),status.text.toString())
 
+
+
         }
 
 

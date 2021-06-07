@@ -15,6 +15,7 @@ import com.example.taskplanner.repository.remote.user.UserService
 import com.example.taskplanner.repository.repository.TaskRepository
 import com.example.taskplanner.repository.repository.UserRepository
 import com.example.taskplanner.storage.Storage
+import com.example.taskplanner.ui.adapter.TaskAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -62,6 +63,37 @@ class MainActivityViewModel @Inject constructor(
             }
 
         }
+    }
+
+
+
+     fun getTasks() {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = taskRepository.taskService.getTasks()
+            if(response.isSuccessful){
+                val task = response.body()!!
+                Log.d("DEBUG", "Get Task: $task")
+            }else{
+                response.errorBody()
+            }
+
+        }
+    }
+
+    fun retrieveTaskList(taskAdapter: TaskAdapter){
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = taskRepository.taskService.getTasks()
+
+            if (response.isSuccessful){
+                taskAdapter.updateTaskList(response.body()!!)
+            }
+
+
+
+        }
+
+
+
     }
 
 
