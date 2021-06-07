@@ -84,7 +84,9 @@ class MainActivityViewModel @Inject constructor(
         GlobalScope.launch(Dispatchers.IO) {
             val response = taskRepository.taskService.getTasks()
             if (response.isSuccessful){
+                val task = response.body()!!
                 taskAdapter.updateTaskList(response.body()!!)
+
             }
 
 

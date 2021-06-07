@@ -8,12 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.remote.dto.TaskDto
 
-class TaskAdapter(private var taskList: List<TaskDto>): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+class TaskAdapter(private val taskAdapterListener: TaskAdapterListener): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
+
+    private var taskList: List<TaskDto> = ArrayList()
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val description: TextView = view.findViewById(R.id.textViewTaskDescription)
         val dueDate: TextView = view.findViewById(R.id.textViewTaskDueDate)
@@ -33,6 +32,11 @@ class TaskAdapter(private var taskList: List<TaskDto>): RecyclerView.Adapter<Tas
         holder.description.text = task.description
         holder.dueDate.text = task.dueDate
         holder.status.text = task.status
+
+        holder.itemView.setOnClickListener {
+            taskAdapterListener.onTaskClicked(task)
+
+        }
 
 
     }
