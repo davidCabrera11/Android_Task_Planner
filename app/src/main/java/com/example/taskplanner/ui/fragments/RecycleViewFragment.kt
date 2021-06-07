@@ -58,7 +58,8 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view), TaskAdapte
      }
 
     override fun onTaskClicked(taskDto: TaskDto) {
-        TODO("Not yet implemented")
+        findNavController().navigate(R.id.action_recycleViewFragment_to_taskDetailFragment)
+
     }
 
 
