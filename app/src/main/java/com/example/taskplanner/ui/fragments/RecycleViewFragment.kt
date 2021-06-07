@@ -29,11 +29,7 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view) {
         viewModel.getTasks()
         viewModel.retrieveTaskList(taskAdapter)
 
-
     }
-
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,7 +43,6 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view) {
         }
 
         configureRecyclerView()
-
 
     }
 
