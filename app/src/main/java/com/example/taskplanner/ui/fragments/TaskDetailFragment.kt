@@ -14,41 +14,28 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val description = view?.findViewById<TextView>(R.id.textViewUpdateDescriptionTask)
-        val personResponsible = view?.findViewById<TextView>(R.id.textViewUpdatePersonResponsible)
-        val dueDate = view?.findViewById<TextView>(R.id.textViewUpdateDueDate)
-        val status = view?.findViewById<TextView>(R.id.textViewUpdateStatus)
-
-
+        val description = view?.findViewById<EditText>(R.id.textViewUpdateDescriptionTask)
+        val personResponsible = view?.findViewById<EditText>(R.id.textViewUpdatePersonResponsible)
+        val dueDate = view?.findViewById<EditText>(R.id.textViewUpdateDueDate)
+        val status = view?.findViewById<EditText>(R.id.textViewUpdateStatus)
 
         val taskDto:TaskDto = arguments?.getSerializable("task") as TaskDto
-
         updateSelectedTaskInfo(taskDto, description, personResponsible, dueDate, status)
 
     }
 
-    private fun updateSelectedTaskInfo(taskDto: TaskDto, description: TextView,
-                                       personResponsible:TextView,dueDate:TextView,status:TextView) {
+    private fun updateSelectedTaskInfo(taskDto: TaskDto, description: EditText,
+                                       personResponsible:EditText,dueDate:EditText,status:EditText) {
 
-        description.text = taskDto.description
-        personResponsible.text = taskDto.personResponsible
-        dueDate.text = taskDto.dueDate
-        status.text = taskDto.status
-
-
-
-
-
-
-
+        description.setText(taskDto.description)
+        personResponsible.setText(taskDto.personResponsible)
+        dueDate.setText(taskDto.dueDate)
+        status.setText(taskDto.status)
 
     }
 
