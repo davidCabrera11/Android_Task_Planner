@@ -81,7 +81,7 @@ class MainActivityViewModel @Inject constructor(
     }
 
     fun retrieveTaskList(taskAdapter: TaskAdapter){
-        GlobalScope.launch(Dispatchers.IO) {
+        GlobalScope.launch(Dispatchers.Main) {
             val response = taskRepository.taskService.getTasks()
             if (response.isSuccessful){
                 val task = response.body()!!
