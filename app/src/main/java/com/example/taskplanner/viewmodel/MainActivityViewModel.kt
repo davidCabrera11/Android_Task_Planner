@@ -30,24 +30,7 @@ class MainActivityViewModel @Inject constructor(
 
         val successLiveData = MutableLiveData<Boolean>()
 
-    fun findUserById(){
-        viewModelScope.launch(Dispatchers.IO) {
-            val response = userRepository.userService.findUserById("6099af1ab755fe29152c9272")
-            if(response.isSuccessful){
-                val user = response.body()!!
-                Log.d("DEBUG", "UserId: $user")
-                successLiveData.postValue(true)
-                userRepository.userDao.save(User(user))
 
-            }else{
-                response.errorBody()
-                successLiveData.postValue(false)
-
-            }
-
-        }
-
-    }
 
      fun createTask(description:String,personResponsible:String,dueDate:String,status:String) {
         GlobalScope.launch(Dispatchers.IO) {
@@ -79,6 +62,24 @@ class MainActivityViewModel @Inject constructor(
 
         }
     }
+
+
+     fun updateTask(description:String,personResponsible:String,dueDate:String,status:String) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response = taskRepository.taskService.updateTask("60a3326448abc1562e500144",
+                TaskDto("3123123",description,personResponsible,
+                    dueDate,status,"123123123")
+            )
+            if(response.isSuccessful){
+                val task = response.body()!!
+                Log.d("DEBUG", "Updated task: $task")
+            }else{
+                response.errorBody()
+            }
+
+        }
+    }
+
 
     fun retrieveTaskList(taskAdapter: TaskAdapter){
         GlobalScope.launch(Dispatchers.Main) {

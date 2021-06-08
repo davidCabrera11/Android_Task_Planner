@@ -12,6 +12,9 @@ interface TaskDao {
     @Query("SELECT * FROM task WHERE id = :id ")
     fun findById(id: String): Task
 
+    @Query("SELECT * FROM task WHERE uid = :uid ")
+    fun findByUId(uid: String): Task
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(task: Task)
 
