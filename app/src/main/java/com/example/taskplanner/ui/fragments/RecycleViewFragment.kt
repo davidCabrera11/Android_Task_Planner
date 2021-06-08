@@ -10,6 +10,7 @@ import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.remote.dto.TaskDto
 import com.example.taskplanner.ui.adapter.TaskAdapter
@@ -42,6 +43,14 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view), TaskAdapte
         super.onViewCreated(view, savedInstanceState)
 
         val fabButton = view.findViewById<FloatingActionButton>(R.id.fabCreateTask)
+
+        val swipeRefresh = view.findViewById<SwipeRefreshLayout>(R.id.swipeRefresh)
+
+        swipeRefresh.setOnRefreshListener {
+            viewModel.retrieveTaskList(taskAdapter)
+            swipeRefresh.isRefreshing = false
+
+        }
 
 
         fabButton.setOnClickListener {
