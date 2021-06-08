@@ -1,9 +1,12 @@
 package com.example.taskplanner.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.activity.viewModels
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,6 +51,7 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view), TaskAdapte
 
         configureRecyclerView()
 
+
     }
 
     private fun configureRecyclerView() {
@@ -58,7 +62,9 @@ class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view), TaskAdapte
      }
 
     override fun onTaskClicked(taskDto: TaskDto) {
-        findNavController().navigate(R.id.action_recycleViewFragment_to_taskDetailFragment)
+        findNavController().navigate(R.id.taskDetailFragment, bundleOf("task" to taskDto))
+        Log.d("Developer","Task Clicked")
+
 
     }
 

@@ -35,7 +35,6 @@ class TaskAdapter(private val taskAdapterListener: TaskAdapterListener): Recycle
 
         holder.itemView.setOnClickListener {
             taskAdapterListener.onTaskClicked(task)
-
         }
 
 
