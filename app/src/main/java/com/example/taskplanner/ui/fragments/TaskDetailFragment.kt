@@ -5,12 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+import android.widget.Spinner
 import androidx.fragment.app.viewModels
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.remote.dto.TaskDto
 import com.example.taskplanner.viewmodel.MainActivityViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,18 +29,20 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
         val description = view.findViewById<EditText>(R.id.textViewUpdateDescriptionTask)
         val personResponsible = view.findViewById<EditText>(R.id.textViewUpdatePersonResponsible)
         val dueDate = view.findViewById<EditText>(R.id.textViewUpdateDueDate)
-        val status = view.findViewById<EditText>(R.id.textViewUpdateStatus)
+        val status = view.findViewById<Spinner>(R.id.spinnerUpdateStatus)
 
         val updateButton = view.findViewById<Button>(R.id.buttonUpdateTask)
 
 
         val taskDto:TaskDto = arguments?.getSerializable("task") as TaskDto
+/*
         updateSelectedTaskInfo(taskDto, description, personResponsible, dueDate, status)
+*/
 
 
         updateButton.setOnClickListener {
-            viewModel.updateTask(taskDto.id,description.text.toString(),personResponsible.text.toString(),
-                dueDate.text.toString(),status.text.toString())
+       /*     viewModel.updateTask(taskDto.id,description.text.toString(),personResponsible.text.toString(),
+                dueDate.text.toString(),status.text.toString())*/
 
         }
 

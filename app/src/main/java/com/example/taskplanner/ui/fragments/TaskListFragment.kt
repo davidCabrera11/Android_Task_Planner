@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
-import androidx.activity.viewModels
 import androidx.core.os.bundleOf
-import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,10 +16,10 @@ import com.example.taskplanner.ui.adapter.TaskAdapterListener
 import com.example.taskplanner.viewmodel.MainActivityViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_recycle_view.*
+import kotlinx.android.synthetic.main.fragment_task_list.*
 
 @AndroidEntryPoint
-class TaskListFragment : Fragment(R.layout.fragment_recycle_view), TaskAdapterListener {
+class TaskListFragment : Fragment(R.layout.fragment_task_list), TaskAdapterListener {
 
 
     val viewModel by viewModels<MainActivityViewModel>()

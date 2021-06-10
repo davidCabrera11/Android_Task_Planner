@@ -28,9 +28,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Description"
+        android:hint="Description"
         android:textSize="20sp"
         android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/textViewUpdatePersonResponsible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -42,9 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Person Responsible"
+        android:hint="Person Responsible"
         android:textSize="20sp"
         android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/textViewUpdateDueDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -56,23 +58,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Select Due Date"
+        android:hint="Select Due Date"
         android:textSize="20sp"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUpdateStatus"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerUpdateStatus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUpdatePersonResponsible" />
 
-    <EditText
-        android:id="@+id/textViewUpdateStatus"
+    <Spinner
+        android:id="@+id/spinnerUpdateStatus"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
-        android:text="Status"
-        android:textSize="20sp"
-        android:textColor="@color/white"
+        android:entries="@array/task_status"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/buttonUpdateTask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -92,6 +94,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUpdateStatus" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerUpdateStatus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

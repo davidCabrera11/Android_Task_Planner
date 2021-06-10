@@ -8,7 +8,7 @@
         android:id="@+id/recycleViewFragment"
         android:name="com.example.taskplanner.ui.fragments.TaskListFragment"
         android:label="fragment_recycle_view"
-        tools:layout="@layout/fragment_recycle_view" >
+        tools:layout="@layout/fragment_task_list" >
         <action
             android:id="@+id/action_recycleViewFragment_to_taskDetailFragment"
             app:destination="@id/taskDetailFragment" />
