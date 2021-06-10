@@ -64,9 +64,9 @@ class MainActivityViewModel @Inject constructor(
     }
 
 
-     fun updateTask(description:String,personResponsible:String,dueDate:String,status:String) {
+     fun updateTask(id:String,description:String,personResponsible:String,dueDate:String,status:String) {
         GlobalScope.launch(Dispatchers.IO) {
-            val response = taskRepository.taskService.updateTask("60a3326448abc1562e500144",
+            val response = taskRepository.taskService.updateTask(id,
                 TaskDto("3123123",description,personResponsible,
                     dueDate,status,"123123123")
             )

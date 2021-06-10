@@ -34,14 +34,16 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
 
         val updateButton = view.findViewById<Button>(R.id.buttonUpdateTask)
 
-        updateButton.setOnClickListener {
-            viewModel.updateTask(description.text.toString(),personResponsible.text.toString(),
-                dueDate.text.toString(),status.text.toString())
-
-        }
 
         val taskDto:TaskDto = arguments?.getSerializable("task") as TaskDto
         updateSelectedTaskInfo(taskDto, description, personResponsible, dueDate, status)
+
+
+        updateButton.setOnClickListener {
+            viewModel.updateTask(taskDto.id,description.text.toString(),personResponsible.text.toString(),
+                dueDate.text.toString(),status.text.toString())
+
+        }
 
     }
 
