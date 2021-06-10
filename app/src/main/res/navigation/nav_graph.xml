@@ -6,7 +6,7 @@
     app:startDestination="@id/recycleViewFragment">
     <fragment
         android:id="@+id/recycleViewFragment"
-        android:name="com.example.taskplanner.ui.fragments.RecycleViewFragment"
+        android:name="com.example.taskplanner.ui.fragments.TaskListFragment"
         android:label="fragment_recycle_view"
         tools:layout="@layout/fragment_recycle_view" >
         <action

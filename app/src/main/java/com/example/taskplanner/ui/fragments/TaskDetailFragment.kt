@@ -40,8 +40,6 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
 
         }
 
-
-
         val taskDto:TaskDto = arguments?.getSerializable("task") as TaskDto
         updateSelectedTaskInfo(taskDto, description, personResponsible, dueDate, status)
 

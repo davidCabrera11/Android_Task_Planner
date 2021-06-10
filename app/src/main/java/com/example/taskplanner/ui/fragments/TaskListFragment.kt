@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_recycle_view.*
 
 @AndroidEntryPoint
-class RecycleViewFragment : Fragment(R.layout.fragment_recycle_view), TaskAdapterListener {
+class TaskListFragment : Fragment(R.layout.fragment_recycle_view), TaskAdapterListener {
 
 
     val viewModel by viewModels<MainActivityViewModel>()
