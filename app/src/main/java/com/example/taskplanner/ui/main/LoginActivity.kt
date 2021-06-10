@@ -2,6 +2,7 @@ package com.example.taskplanner.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -24,8 +25,8 @@ class LoginActivity: AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btnLogin.setOnClickListener {
-            viewModel.auth(editTextEmail.text.toString(),editTextPassword.text.toString())
             validFormField()
+            viewModel.auth(editTextEmail.text.toString(),editTextPassword.text.toString())
         }
 
         btnCreateAccount.setOnClickListener {
@@ -45,7 +46,9 @@ class LoginActivity: AppCompatActivity() {
         if (editTextEmail.text.isEmpty()){
             editTextEmail.error = getString(R.string.field_cannot_be_empty)
             return false
-        }else if (android.util.Patterns.EMAIL_ADDRESS.matcher(editTextEmail.text).matches()){
+        }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(editTextEmail.text.toString()).matches()){
+            Log.d("Developer: ",editTextEmail.text.toString())
             editTextEmail.error = getString(R.string.invalid_email_address)
             return false
         }else{
