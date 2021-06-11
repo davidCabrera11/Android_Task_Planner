@@ -36,6 +36,8 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
         val status = view.findViewById<Spinner>(R.id.spinnerUpdateStatus)
 
         val updateButton = view.findViewById<Button>(R.id.buttonUpdateTask)
+        val deleteButton = view.findViewById<Button>(R.id.buttonDeleteTask)
+
 
 
         val taskDto:TaskDto = arguments?.getSerializable("task") as TaskDto
@@ -52,15 +54,18 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
 
         }
 
+        deleteButton.setOnClickListener {
+
+            Toast.makeText(context,"Task Deleted", Toast.LENGTH_SHORT).show()
+
+
+
+        }
+
     }
 
     private fun updateSelectedTaskInfo(taskDto: TaskDto, description: EditText,
                                        personResponsible:EditText,dueDate:EditText,status:EditText) {
-
-        var newDate:String =  taskDto.dueDate
-
-        newDate = SimpleDateFormat("dd-MM-yyyy", Locale.US).toString()
-
 
         description.setText(taskDto.description)
         personResponsible.setText(taskDto.personResponsible)
