@@ -24,8 +24,8 @@ class CreateAccountActivity:AppCompatActivity() {
 
         btnCreateAccount.setOnClickListener {
             viewModel.createUser(editTextIdCreate.text.toString(),editTextNameCreate.text.toString(),editTextPasswordCreate.text.toString(),
-                editTextEmailCreate.text.toString(),editTextProfilePicture.toString())
-            Toast.makeText(this@CreateAccountActivity,"Congratulations you have created a new account",Toast.LENGTH_SHORT)
+                editTextEmailCreate.text.toString(),editTextProfilePicture.text.toString())
+            Toast.makeText(this@CreateAccountActivity,"Congratulations you have created a new account",Toast.LENGTH_SHORT).show()
         }
 
     }

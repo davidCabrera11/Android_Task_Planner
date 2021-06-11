@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.example.taskplanner.R
 import com.example.taskplanner.viewmodel.MainActivityViewModel
@@ -32,6 +33,8 @@ class NewTaskFragment : Fragment(R.layout.fragment_new_task) {
         buttonCreateTask.setOnClickListener {
 
           //  viewModel.createTask(description.text.toString(),personResponsable.text.toString(),dueDate.text.toString(),status.text.toString())
+            Toast.makeText(context,"New task created", Toast.LENGTH_SHORT).show()
+
 
 
 
