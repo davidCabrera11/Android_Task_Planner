@@ -1,18 +1,14 @@
 package com.example.taskplanner.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.*
-import androidx.core.view.get
 import androidx.fragment.app.viewModels
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.remote.dto.TaskDto
 import com.example.taskplanner.viewmodel.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 @AndroidEntryPoint
@@ -36,11 +32,9 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
         val updateButton = view.findViewById<Button>(R.id.buttonUpdateTask)
         val deleteButton = view.findViewById<Button>(R.id.buttonDeleteTask)
 
-        val statusSpinner = view.findViewById<Spinner>(R.id.spinnerUpdateStatus)
+        val statusSpinner = view.findViewById<Spinner>(R.id.spinnerCreateStatus)
 
         val taskDto:TaskDto = arguments?.getSerializable("task") as TaskDto
-
-
 
 
         statusSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
