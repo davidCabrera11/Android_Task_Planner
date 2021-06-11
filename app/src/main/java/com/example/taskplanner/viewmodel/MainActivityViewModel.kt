@@ -71,7 +71,6 @@ class MainActivityViewModel @Inject constructor(
             )
             if(response.isSuccessful){
                 val task = response.body()!!
-                Log.d("DEBUG", "Updated task: $task")
             }else{
                 response.errorBody()
             }
@@ -85,6 +84,9 @@ class MainActivityViewModel @Inject constructor(
             val response = taskRepository.taskService.getTasks()
             if (response.isSuccessful){
                 val task = response.body()!!
+                task.forEach{
+                    taskRepository.taskDao.save(Task(it))
+                }
                 viewModelScope.launch(Dispatchers.Main) {
                     taskAdapter.updateTaskList(response.body()!!)
                 }

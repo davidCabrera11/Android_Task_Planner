@@ -41,8 +41,8 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list), TaskAdapterListe
         super.onViewCreated(view, savedInstanceState)
 
         val fabButton = view.findViewById<FloatingActionButton>(R.id.fabCreateTask)
-
         val swipeRefresh = view.findViewById<SwipeRefreshLayout>(R.id.swipeRefresh)
+
 
         swipeRefresh.setOnRefreshListener {
             viewModel.retrieveTaskList(taskAdapter)
