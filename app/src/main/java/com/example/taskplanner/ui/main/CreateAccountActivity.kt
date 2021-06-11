@@ -1,6 +1,5 @@
 package com.example.taskplanner.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -25,7 +24,7 @@ class CreateAccountActivity:AppCompatActivity() {
 
         btnCreateAccount.setOnClickListener {
             viewModel.createUser(editTextIdCreate.text.toString(),editTextNameCreate.text.toString(),editTextPasswordCreate.text.toString(),
-                editTextEmailCreate.text.toString(),imageViewProfilePicture.toString())
+                editTextEmailCreate.text.toString(),editTextProfilePicture.toString())
             Toast.makeText(this@CreateAccountActivity,"Congratulations you have created a new account",Toast.LENGTH_SHORT)
         }
 
