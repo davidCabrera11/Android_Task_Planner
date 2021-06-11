@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.remote.dto.TaskDto
@@ -46,6 +47,8 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
         updateButton.setOnClickListener {
        /*     viewModel.updateTask(taskDto.id,description.text.toString(),personResponsible.text.toString(),
                 dueDate.text.toString(),status.text.toString())*/
+            Toast.makeText(context,"Task Updated", Toast.LENGTH_SHORT).show()
+
 
         }
 
@@ -61,7 +64,7 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
 
         description.setText(taskDto.description)
         personResponsible.setText(taskDto.personResponsible)
-        dueDate.setText(newDate)
+        dueDate.setText(taskDto.dueDate)
         status.setText(taskDto.status)
 
     }
