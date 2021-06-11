@@ -1,12 +1,11 @@
 package com.example.taskplanner.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
+import androidx.core.view.get
 import androidx.fragment.app.viewModels
 import com.example.taskplanner.R
 import com.example.taskplanner.repository.remote.dto.TaskDto
@@ -33,23 +32,35 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
         val description = view.findViewById<EditText>(R.id.textViewUpdateDescriptionTask)
         val personResponsible = view.findViewById<EditText>(R.id.textViewUpdatePersonResponsible)
         val dueDate = view.findViewById<EditText>(R.id.textViewUpdateDueDate)
-        val status = view.findViewById<Spinner>(R.id.spinnerUpdateStatus)
 
         val updateButton = view.findViewById<Button>(R.id.buttonUpdateTask)
         val deleteButton = view.findViewById<Button>(R.id.buttonDeleteTask)
 
-
+        val statusSpinner = view.findViewById<Spinner>(R.id.spinnerUpdateStatus)
 
         val taskDto:TaskDto = arguments?.getSerializable("task") as TaskDto
-/*
-        updateSelectedTaskInfo(taskDto, description, personResponsible, dueDate, status)
-*/
+
+
+
+
+        statusSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long){
+
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+
+
+        showSelectedTaskDetails(taskDto, description, personResponsible, dueDate, statusSpinner, statusSpinner.selectedItemPosition)
 
 
         updateButton.setOnClickListener {
-       /*     viewModel.updateTask(taskDto.id,description.text.toString(),personResponsible.text.toString(),
-                dueDate.text.toString(),status.text.toString())*/
+            viewModel.updateTask(taskDto.id,description.text.toString(),personResponsible.text.toString(),
+                dueDate.text.toString(),statusSpinner.selectedItem.toString())
             Toast.makeText(context,"Task Updated", Toast.LENGTH_SHORT).show()
+
 
 
         }
@@ -64,13 +75,13 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
 
     }
 
-    private fun updateSelectedTaskInfo(taskDto: TaskDto, description: EditText,
-                                       personResponsible:EditText,dueDate:EditText,status:EditText) {
+    private fun showSelectedTaskDetails(taskDto: TaskDto, description: EditText,
+                                       personResponsible:EditText,dueDate:EditText,status: Spinner,selectedItem:Int) {
 
         description.setText(taskDto.description)
         personResponsible.setText(taskDto.personResponsible)
         dueDate.setText(taskDto.dueDate)
-        status.setText(taskDto.status)
+        status.setSelection(selectedItem)
 
     }
 
