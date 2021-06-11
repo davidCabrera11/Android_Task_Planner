@@ -31,7 +31,6 @@ class MainActivityViewModel @Inject constructor(
         val successLiveData = MutableLiveData<Boolean>()
 
 
-
      fun createTask(description:String,personResponsible:String,dueDate:String,status:String) {
         GlobalScope.launch(Dispatchers.IO) {
             val response = taskRepository.taskService.createTask(TaskDto("3123123",description,personResponsible,

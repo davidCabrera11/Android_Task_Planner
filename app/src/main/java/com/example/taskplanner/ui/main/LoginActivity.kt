@@ -14,7 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_login.*
 
 @AndroidEntryPoint
-class LoginActivity: AppCompatActivity() {
+class   LoginActivity: AppCompatActivity() {
 
 
     val viewModel by viewModels<LoginActivityViewModel>()

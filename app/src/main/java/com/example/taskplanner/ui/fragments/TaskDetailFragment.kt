@@ -11,6 +11,8 @@ import com.example.taskplanner.R
 import com.example.taskplanner.repository.remote.dto.TaskDto
 import com.example.taskplanner.viewmodel.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 @AndroidEntryPoint
 class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
@@ -51,9 +53,10 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
     private fun updateSelectedTaskInfo(taskDto: TaskDto, description: EditText,
                                        personResponsible:EditText,dueDate:EditText,status:EditText) {
 
+        val newDate:String =  taskDto.dueDate.format("yyyy-MM-dd")
         description.setText(taskDto.description)
         personResponsible.setText(taskDto.personResponsible)
-        dueDate.setText(taskDto.dueDate)
+        dueDate.setText(newDate)
         status.setText(taskDto.status)
 
     }
