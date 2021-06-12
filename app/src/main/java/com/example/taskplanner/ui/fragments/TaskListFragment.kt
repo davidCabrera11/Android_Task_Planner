@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Button
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -44,6 +46,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list), TaskAdapterListe
         val swipeRefresh = view.findViewById<SwipeRefreshLayout>(R.id.swipeRefresh)
 
 
+
         swipeRefresh.setOnRefreshListener {
             viewModel.retrieveTaskList(taskAdapter)
             swipeRefresh.isRefreshing = false
@@ -74,6 +77,15 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list), TaskAdapterListe
 
 
     }
+
+    override fun onDeleteTaskClicked(taskList: List<TaskDto>, position:Int) {
+        taskList.drop(position)
+        taskAdapter.notifyItemRemoved(position)
+        viewModel.deleteTask(taskList.get(position).id)
+        Toast.makeText(context,"Task Deleted", Toast.LENGTH_SHORT).show()
+
+    }
+
 
 
 }

@@ -19,6 +19,7 @@ import com.example.taskplanner.ui.adapter.TaskAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -32,7 +33,7 @@ class MainActivityViewModel @Inject constructor(
 
 
      fun createTask(description:String,personResponsible:String,dueDate:String,status:String) {
-        GlobalScope.launch(Dispatchers.IO) {
+         viewModelScope.launch(Dispatchers.IO) {
             val response = taskRepository.taskService.createTask(TaskDto("3123123",description,personResponsible,
                 dueDate,status,"123123123"))
             if(response.isSuccessful){
@@ -50,7 +51,7 @@ class MainActivityViewModel @Inject constructor(
 
 
      fun getTasks() {
-        GlobalScope.launch(Dispatchers.IO) {
+         viewModelScope.launch(Dispatchers.IO) {
             val response = taskRepository.taskService.getTasks()
             if(response.isSuccessful){
                 val task = response.body()!!
@@ -64,7 +65,7 @@ class MainActivityViewModel @Inject constructor(
 
 
      fun updateTask(id:String,description:String,personResponsible:String,dueDate:String,status:String) {
-        GlobalScope.launch(Dispatchers.IO) {
+         viewModelScope.launch(Dispatchers.IO) {
             val response = taskRepository.taskService.updateTask(id,
                 TaskDto("3123123",description,personResponsible,
                     dueDate,status,"123123123")
@@ -78,6 +79,17 @@ class MainActivityViewModel @Inject constructor(
         }
     }
 
+    fun deleteTask(id:String){
+            viewModelScope.launch(Dispatchers.IO) {
+                val response = taskRepository.taskService.deleteTask(id)
+                if (response.isSuccessful){
+                    val task = response.body()!!
+                    Log.d("Deleted","Deleted task $task")
+                }else{
+                    response.errorBody()
+                }
+            }
+    }
 
     fun retrieveTaskList(taskAdapter: TaskAdapter){
         viewModelScope.launch(Dispatchers.IO) {
