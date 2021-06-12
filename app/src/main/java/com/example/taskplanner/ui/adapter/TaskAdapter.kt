@@ -19,7 +19,6 @@ class TaskAdapter(private val taskAdapterListener: TaskAdapterListener): Recycle
         val description: TextView = view.findViewById(R.id.textViewTaskDescription)
         val dueDate: TextView = view.findViewById(R.id.textViewTaskDueDate)
         val status: TextView = view.findViewById(R.id.textViewTaskStatus)
-        val deleteTask: Button  = view.findViewById(R.id.buttonDelete)
 
     }
 
@@ -27,20 +26,14 @@ class TaskAdapter(private val taskAdapterListener: TaskAdapterListener): Recycle
         val view = LayoutInflater.from(parent.context).inflate(R.layout.task_row,parent,false)
         return ViewHolder(view)
 
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val task = taskList[position]
+
         holder.description.text = task.description
         holder.dueDate.text = task.dueDate
         holder.status.text = task.status
-
-
-        holder.deleteTask.setOnClickListener {
-            taskAdapterListener.onDeleteTaskClicked(taskList, position)
-
-        }
 
 
         holder.itemView.setOnClickListener {

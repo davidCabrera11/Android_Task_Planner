@@ -30,7 +30,6 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
         val dueDate = view.findViewById<EditText>(R.id.textViewUpdateDueDate)
 
         val updateButton = view.findViewById<Button>(R.id.buttonUpdateTask)
-        val deleteButton = view.findViewById<Button>(R.id.buttonDeleteTask)
 
         val statusSpinner = view.findViewById<Spinner>(R.id.spinnerCreateStatus)
 
@@ -59,26 +58,11 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
 
         }
 
-        deleteButton.setOnClickListener {
-            resetDetailsOnDelete(taskDto, description, personResponsible, dueDate, statusSpinner, statusSpinner.selectedItemPosition)
-            viewModel.deleteTask(taskDto.id)
-            Toast.makeText(context,"Task Deleted", Toast.LENGTH_SHORT).show()
-
-
-        }
 
     }
 
 
-    private fun resetDetailsOnDelete(taskDto: TaskDto, description: EditText,
-                                     personResponsible:EditText,dueDate:EditText,status: Spinner,selectedItem:Int){
 
-        description.setText("")
-        personResponsible.setText("")
-        dueDate.setText("")
-
-
-    }
 
 
     private fun showSelectedTaskDetails(taskDto: TaskDto, description: EditText,

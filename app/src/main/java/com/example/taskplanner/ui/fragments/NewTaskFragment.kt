@@ -31,11 +31,11 @@ class NewTaskFragment : Fragment(R.layout.fragment_new_task) {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
+
             }
 
 
         }
-
 
 
         buttonCreateTask.setOnClickListener {
@@ -43,17 +43,9 @@ class NewTaskFragment : Fragment(R.layout.fragment_new_task) {
                 dueDate.text.toString(),statusSpinner.selectedItem.toString())
             Toast.makeText(context,"New task created", Toast.LENGTH_SHORT).show()
 
-
-
-
         }
 
-
-
-
     }
-
-
 
 
 }

@@ -78,13 +78,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list), TaskAdapterListe
 
     }
 
-    override fun onDeleteTaskClicked(taskList: List<TaskDto>, position:Int) {
-        taskList.drop(position)
-        taskAdapter.notifyItemRemoved(position)
-        viewModel.deleteTask(taskList.get(position).id)
-        Toast.makeText(context,"Task Deleted", Toast.LENGTH_SHORT).show()
 
-    }
 
 
 

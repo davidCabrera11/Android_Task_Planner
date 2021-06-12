@@ -21,7 +21,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <EditText
         android:id="@+id/textViewUpdateDescriptionTask"
@@ -90,26 +91,11 @@
         android:text="Update Task"
         android:textColor="@color/light_blue"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDeleteTask"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCreateStatus" />
-
-    <Button
-        android:id="@+id/buttonDeleteTask"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="10dp"
-        android:backgroundTint="@color/white"
-        android:text="Delete Task"
-        android:textColor="@color/light_blue"
-        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUpdateTask" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCreateStatus" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

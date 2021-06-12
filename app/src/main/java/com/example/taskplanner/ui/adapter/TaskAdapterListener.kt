@@ -7,6 +7,4 @@ interface TaskAdapterListener {
 
     fun onTaskClicked(taskDto: TaskDto)
 
-    fun onDeleteTaskClicked(taskList: List<TaskDto>,position:Int)
-
 }
