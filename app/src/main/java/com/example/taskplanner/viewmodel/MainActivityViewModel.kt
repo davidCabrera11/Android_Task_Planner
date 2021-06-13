@@ -21,6 +21,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,6 +31,21 @@ class MainActivityViewModel @Inject constructor(
     ):ViewModel() {
 
         val successLiveData = MutableLiveData<Boolean>()
+
+
+    fun syncTaskData(){
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                taskRepository.syncData()
+            }catch (e:Exception){
+                Log.e("Developer","Error on syncData",e)
+
+            }
+        }
+
+
+    }
+
 
 
      fun createTask(description:String,personResponsible:String,dueDate:String,status:String) {

@@ -19,6 +19,7 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.syncTaskData()
 
     }
 
@@ -70,7 +71,7 @@ class TaskDetailFragment : Fragment(R.layout.fragment_task_detail,) {
 
         description.setText(taskDto.description)
         personResponsible.setText(taskDto.personResponsible)
-        dueDate.setText(taskDto.dueDate)
+        dueDate.setText(taskDto.dueDate).toString().subSequence(0,10)
         status.setSelection(selectedItem)
 
     }

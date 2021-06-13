@@ -1,6 +1,6 @@
 package com.example.taskplanner.di
 
-import com.example.taskplanner.BuildConfig
+import androidx.viewbinding.BuildConfig
 import com.example.taskplanner.network.AuthInterceptor
 import com.example.taskplanner.repository.remote.auth.AuthService
 import com.example.taskplanner.repository.remote.task.TaskService
@@ -48,7 +48,7 @@ object APIServiceModule {
     @Singleton
     fun provideRetrofit(storage: Storage): Retrofit{
         val builder = Retrofit.Builder()
-            .baseUrl(BuildConfig.API_BASE_URL)
+            .baseUrl("https://task-planner-staging.herokuapp.com/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
 
