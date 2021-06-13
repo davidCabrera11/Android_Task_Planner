@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.taskplanner.R
@@ -25,8 +26,11 @@ class   LoginActivity: AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btnLogin.setOnClickListener {
-            validFormField()
-            viewModel.auth(editTextEmail.text.toString(),editTextPassword.text.toString())
+            if (validFormField() == true){
+                viewModel.auth(editTextEmail.text.toString(),editTextPassword.text.toString())
+            }else{
+                Toast.makeText(this,"Email or Password format incorrect", Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnCreateAccount.setOnClickListener {

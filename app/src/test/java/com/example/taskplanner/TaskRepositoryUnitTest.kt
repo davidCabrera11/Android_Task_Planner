@@ -23,6 +23,7 @@ import retrofit2.Response
 @ExperimentalCoroutinesApi
 class TaskRepositoryUnitTest {
 
+
     lateinit var taskRepository: TaskRepository
 
     @Mock
@@ -44,21 +45,31 @@ class TaskRepositoryUnitTest {
     @Test
     fun whenTaskIsCreatedThenTaskIsStoredOnLocalDBUsingTaskDao()= runBlocking{
         `when`(response.isSuccessful).thenReturn(true)
-
-        val task = TaskDto("","","","","","")
-
+        val task = TaskDto("1023","Do laundry","David",
+            "2021-06-07","To-do","1323056")
         `when`(response.body()).thenReturn(task)
-
         `when`(taskService.createTask(TaskDto(task.id,task.description,task.personResponsible,
             task.dueDate, task.status,task.userId))).thenReturn(response)
-
+        taskRepository.syncData()
         verify(taskDao).save(Task(task))
 
     }
 
     @Test
-    fun whenTaskIsUpdatedThenTaskIsUpdatedOnLocalDB(){
+    fun whenTaskIsUpdatedThenTaskIsUpdatedOnLocalDB()= runBlocking{
+        `when`(response.isSuccessful).thenReturn(true)
+        val task = TaskDto("1023","Do laundry","David",
+            "2021-06-07","To-do","1323056")
+        `when`(response.body()).thenReturn(task)
+        `when`(taskService.createTask(TaskDto(task.id,task.description,task.personResponsible,
+            task.dueDate, task.status,task.userId))).thenReturn(response)
 
+        val updateTask = TaskDto("1023","Do laundry","David",
+            "2021-06-07","Completed","1323056")
+        `when`(taskService.updateTask(updateTask.id, TaskDto(updateTask.id,updateTask.description,
+        updateTask.personResponsible,updateTask.dueDate,updateTask.status,updateTask.userId)
+        ))
+        verify(taskDao).findById(updateTask.id)
 
 
     }

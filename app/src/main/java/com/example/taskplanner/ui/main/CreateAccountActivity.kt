@@ -23,11 +23,17 @@ class CreateAccountActivity:AppCompatActivity() {
 
 
         btnCreateAccount.setOnClickListener {
+            validFormField()
+
             viewModel.createUser(editTextIdCreate.text.toString(),editTextNameCreate.text.toString(),editTextPasswordCreate.text.toString(),
                 editTextEmailCreate.text.toString(),editTextProfilePicture.text.toString())
             Toast.makeText(this@CreateAccountActivity,"Congratulations you have created a new account",Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun validFormField() {
+        TODO("Not yet implemented")
     }
 
 }

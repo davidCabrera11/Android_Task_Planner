@@ -46,10 +46,7 @@ class UserRepositoryUnitTest {
             "test123","david@gmail.com","imugur.com")
         `when`(response.body()).thenReturn(userDto)
         userRepository.userService.createUser(userDto)
-        verify(userDao).save(
-            User(0,"David Cabrera",
-                "test123","david@gmail.com","imugur.com")
-        )
+        verify(userDao).save(User(userDto))
 
     }
 
