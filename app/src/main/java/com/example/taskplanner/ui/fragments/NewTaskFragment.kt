@@ -42,7 +42,6 @@ class NewTaskFragment : Fragment(R.layout.fragment_new_task) {
             viewModel.createTask(description.text.toString(),personResponsable.text.toString(),
                 dueDate.text.toString(),statusSpinner.selectedItem.toString())
             Toast.makeText(context,"New task created", Toast.LENGTH_SHORT).show()
-
         }
 
     }
